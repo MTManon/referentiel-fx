@@ -1,0 +1,42 @@
+{
+  "voyant_global": "OK",
+  "date_controle": "2026-07-28T10:33:06",
+  "controles": [
+    {
+      "code": "C1",
+      "libelle": "Nombre de mois au referentiel",
+      "valeur": 31,
+      "statut": "OK"
+    },
+    {
+      "code": "C2",
+      "libelle": "Serie mensuelle continue",
+      "valeur": "aucun trou",
+      "statut": "OK"
+    },
+    {
+      "code": "C3",
+      "libelle": "Taux dans les bornes [9.5 ; 11.5]",
+      "valeur": "tous dans les bornes",
+      "statut": "OK"
+    },
+    {
+      "code": "C4",
+      "libelle": "Variation mensuelle inferieure a 5 %",
+      "valeur": "aucune rupture",
+      "statut": "OK"
+    },
+    {
+      "code": "C5",
+      "libelle": "Anciennete de la mise a jour inferieure a 40 jours",
+      "valeur": 0,
+      "statut": "OK"
+    },
+    {
+      "code": "C6",
+      "libelle": "Mois clos 2026-06 present",
+      "valeur": true,
+      "statut": "OK"
+    }
+  ]
+}
