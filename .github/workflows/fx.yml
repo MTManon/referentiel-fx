@@ -1,1 +1,73 @@
+name: Referentiel FX MAD-EUR
+
+# Deux cadences :
+#  - le 2 de chaque mois : arrete le mois clos (statut definitif)
+#  - chaque lundi        : rafraichit le mois en cours (statut provisoire)
+on:
+  schedule:
+    - cron: "0 5 2 * *"
+    - cron: "0 5 * * 1"
+  workflow_dispatch:        # declenchement manuel depuis l'onglet Actions
+
+permissions:
+  contents: write           # necessaire pour committer le CSV
+
+jobs:
+  mise-a-jour:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperation du depot
+        uses: actions/checkout@v4
+
+      - name: Installation de Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Dependances
+        run: pip install requests
+
+      - name: Mise a jour du referentiel
+        id: maj
+        run: |
+          set +e
+          python maj_fx.py
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Publication du CSV
+        run: |
+          git config user.name  "fx-bot"
+          git config user.email "fx-bot@users.noreply.github.com"
+          git add master_data_fx.csv controles_fx.json journal_fx.log
+          if git diff --staged --quiet; then
+            echo "Aucun mouvement — pas de commit."
+          else
+            git commit -m "fx: maj referentiel $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Trace de la fenetre d'execution
+        uses: actions/upload-artifact@v4
+        with:
+          name: journal-fx
+          path: |
+            journal_fx.log
+            controles_fx.json
+          retention-days: 90
+
+      # Dernier : fait echouer le job si un controle est en alerte.
+      # C'est ce qui declenche la notification GitHub par courriel —
+      # la protection contre l'echec silencieux.
+      - name: Verdict des controles
+        run: |
+          code="${{ steps.maj.outputs.code }}"
+          if [ "$code" = "0" ]; then
+            echo "Referentiel a jour, tous les controles au vert."
+          elif [ "$code" = "2" ]; then
+            echo "::error::Referentiel mis a jour mais un controle est en ALERTE. Voir controles_fx.json."
+            exit 1
+          else
+            echo "::error::Aucune source n'a repondu. Le referentiel n'a PAS ete mis a jour."
+            exit 1
+          fi
 
