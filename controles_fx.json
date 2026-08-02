@@ -1,6 +1,6 @@
 {
   "voyant_global": "OK",
-  "date_controle": "2026-07-28T10:33:06",
+  "date_controle": "2026-08-02T10:53:01",
   "controles": [
     {
       "code": "C1",
@@ -34,7 +34,7 @@
     },
     {
       "code": "C6",
-      "libelle": "Mois clos 2026-06 present",
+      "libelle": "Mois clos 2026-07 present",
       "valeur": true,
       "statut": "OK"
     }
