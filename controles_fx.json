@@ -1,11 +1,11 @@
 {
   "voyant_global": "OK",
-  "date_controle": "2026-08-31T11:28:55",
+  "date_controle": "2026-09-02T05:11:49",
   "controles": [
     {
       "code": "C1",
       "libelle": "Nombre de mois au referentiel",
-      "valeur": 32,
+      "valeur": 33,
       "statut": "OK"
     },
     {
@@ -34,7 +34,7 @@
     },
     {
       "code": "C6",
-      "libelle": "Mois clos 2026-07 present",
+      "libelle": "Mois clos 2026-08 present",
       "valeur": true,
       "statut": "OK"
     }
