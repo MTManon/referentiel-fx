@@ -1,11 +1,11 @@
 {
-  "voyant_global": "ALERTE",
-  "date_controle": "2026-09-28T11:33:55",
+  "voyant_global": "OK",
+  "date_controle": "2026-10-02T10:56:13",
   "controles": [
     {
       "code": "C1",
       "libelle": "Nombre de mois au referentiel",
-      "valeur": 33,
+      "valeur": 34,
       "statut": "OK"
     },
     {
@@ -23,10 +23,8 @@
     {
       "code": "C4",
       "libelle": "Variation mensuelle inferieure a 5 %",
-      "valeur": [
-        "2026-08->2026-09: 10.4338 -> 10.956"
-      ],
-      "statut": "ALERTE"
+      "valeur": "aucune rupture",
+      "statut": "OK"
     },
     {
       "code": "C5",
@@ -36,7 +34,7 @@
     },
     {
       "code": "C6",
-      "libelle": "Mois clos 2026-08 present",
+      "libelle": "Mois clos 2026-09 present",
       "valeur": true,
       "statut": "OK"
     }
