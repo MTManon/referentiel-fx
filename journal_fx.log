@@ -127,3 +127,8 @@
 2026-11-02 13:16:40,231  INFO     Source yahoo : 66 cours quotidiens, 4 mois
 2026-11-02 13:16:40,232  INFO       aucun mouvement — referentiel deja a jour
 2026-11-02 13:16:40,252  INFO     Ecrit : /home/runner/work/referentiel-fx/referentiel-fx/master_data_fx.csv (35 mois)
+2026-11-09 13:42:41,453  INFO     === Mise a jour du referentiel FX MAD/EUR ===
+2026-11-09 13:42:41,453  INFO     Interrogation de la source yahoo (2026-08-01 -> 2026-11-09)
+2026-11-09 13:42:41,527  INFO     Source yahoo : 71 cours quotidiens, 4 mois
+2026-11-09 13:42:41,527  INFO       2026-11 maj 10.9980 -> 10.9280 (provisoire -> provisoire)
+2026-11-09 13:42:41,528  INFO     Ecrit : /home/runner/work/referentiel-fx/referentiel-fx/master_data_fx.csv (35 mois)
